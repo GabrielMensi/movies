@@ -13,9 +13,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-    { params }: { params: { id: string } },
-    parent: ResolvingMetadata
-): Promise<Metadata> {
+    { params }: { params: { id: string } }, parent: ResolvingMetadata): Promise<Metadata> {
     const { id } = params;
     const tvShowDetail: any = await getData(`/tv/${id}`);
 
@@ -74,7 +72,7 @@ export default async function TvShowDetailsPage({
                                 >
                                     {company.name}
                                 </p>
-                            )
+                            ),
                         )}
                     </div>
                     <Stars rate={tvShowDetail.vote_average * 10} />

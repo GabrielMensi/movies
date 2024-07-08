@@ -11,7 +11,7 @@ export async function GET() {
                 Authorization: `Bearer ${env.API_KEY}`,
                 "Content-Type": "application/json",
             },
-        }
+        },
     );
 
     const data = await response.json();

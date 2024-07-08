@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
-    const session_id = searchParams.get("session_id");
+    const sessionId = searchParams.get("session_id");
 
-    if (!session_id) {
+    if (!sessionId) {
         return NextResponse.json({ error: "session_id is required" }, { status: 400 });
     }
 
-    const url = `https://api.themoviedb.org/3/account?api_key=${env.API_KEY}&session_id=${session_id}`;
+    const url = `https://api.themoviedb.org/3/account?api_key=${env.API_KEY}&session_id=${sessionId}`;
     const response = await fetch(url, {
         cache: "no-store",
         method: "GET",

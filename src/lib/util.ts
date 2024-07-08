@@ -1,8 +1,8 @@
 import { env } from "@/config/env";
 
-type path = `/${string}`
+type PathType = `/${string}`;
 
-export async function getData(path: path) {
+export async function getData(path: PathType) {
     const url = `${env.API_BASE_URL}${path}`;
     const res = await fetch(url, {
         method: "GET",
@@ -17,12 +17,12 @@ export async function getData(path: path) {
     return res.json();
 }
 
-export async function generateDynamicSegment(path: path) {
+export async function generateDynamicSegment(path: PathType) {
     const data = await getData(path);
 
-    const id = data.results.slice(0, 5).map((data: any) => {
-        return { id: data.id.toString() }
+    const id = data.results.slice(0, 5).map((segment: any) => {
+        return { id: segment.id.toString() };
     });
 
-    return id
+    return id;
 }

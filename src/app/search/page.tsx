@@ -10,9 +10,7 @@ export default async function Movies({
     };
 }) {
     const query = searchParams?.query || "";
-    const data = await getData(
-        `/search/multi?query=${query}&include_adult=false&language=en-US&page=1`
-    );
+    const data = await getData(`/search/multi?query=${query}&include_adult=false&language=en-US&page=1`);
     return (
         <>
             <div className="w-full flex justify-between">
@@ -20,14 +18,14 @@ export default async function Movies({
                 <SearchForm />
             </div>
             <div className="flex gap-4 flex-wrap justify-start pt-20">
-                {data.results.map((data: any) =>
-                    data.poster_path ? (
-                        data.media_type == "movie" ? (
-                            <Card key={data.id} data={data} type="movie" />
-                        ) : data.media_type == "tv" ? (
-                            <Card key={data.id} data={data} type="tv-show" />
+                {data.results.map((media: any) =>
+                    media.poster_path ? (
+                        media.media_type == "movie" ? (
+                            <Card key={media.id} data={media} type="movie" />
+                        ) : media.media_type == "tv" ? (
+                            <Card key={media.id} data={media} type="tv-show" />
                         ) : null
-                    ) : null
+                    ) : null,
                 )}
             </div>
         </>

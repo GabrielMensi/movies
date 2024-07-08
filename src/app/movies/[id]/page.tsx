@@ -14,8 +14,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(
     { params }: { params: { id: string } },
-    parent: ResolvingMetadata
-): Promise<Metadata> {
+    parent: ResolvingMetadata): Promise<Metadata> {
     const { id } = params;
     const movieDetail = await getData(`/movie/${id}`);
 
@@ -75,7 +74,7 @@ export default async function MovieDetailsPage({
                                 >
                                     {company.name}
                                 </p>
-                            )
+                            ),
                         )}
                     </div>
                     <Stars rate={movieDetail.vote_average * 10} />

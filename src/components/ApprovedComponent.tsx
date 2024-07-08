@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useAppDispatch } from "@/lib/hooks";
 import {
-    getCurrentState,
     setToken,
     setSessionId,
     logout,

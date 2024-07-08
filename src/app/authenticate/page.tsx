@@ -23,13 +23,11 @@ export default function Authenticate() {
         };
 
         getRequestToken();
-    }, []);
+    });
 
     useEffect(() => {
         if (requestToken) {
-            const redirectTo = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${encodeURIComponent(
-                window.location.origin + "/approved"
-            )}`;
+            const redirectTo = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=${encodeURIComponent(window.location.origin + "/approved")}`;
             router.push(redirectTo);
         }
     }, [requestToken, router]);

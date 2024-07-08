@@ -10,12 +10,12 @@ export async function POST(request: Request) {
             cache: "no-store",
             method: "POST",
             headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
+                accept: "application/json",
+                "content-type": "application/json",
                 Authorization: `Bearer ${env.API_KEY}`,
             },
             body: JSON.stringify({ request_token: requestToken }),
-        }
+        },
     );
 
     const data = await response.json();

@@ -15,20 +15,20 @@ type Profile = {
 
 export default function ProfilePage() {
     const router = useRouter();
-    const state = useAppSelector((state) => state.auth);
+    const auth = useAppSelector((state) => state.auth);
     const [profile, setProfile] = useState<Profile | null>(null);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        const session_id = state.sessionId;
-        if (session_id) {
-            fetch(`/api/get-profile?session_id=${session_id}`)
+        const sessionId = auth.sessionId;
+        if (sessionId) {
+            fetch(`/api/get-profile?session_id=${sessionId}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setProfile(data);
                 });
         }
-    }, [state]);
+    }, [auth]);
 
     const signOut = () => {
         dispatch(logout());

@@ -17,11 +17,9 @@ export default async function GenreMoviePage({
     params: { id: string };
 }) {
     const { id } = params;
-    const genre = await getData(`/genre/movie/list?language=en`);
-    const genreName = genre.genres.find((genre: any) => genre.id == id).name;
-    const movies = await getData(
-        `/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}`
-    );
+    const genreData = await getData(`/genre/movie/list?language=en`);
+    const genreName = genreData.genres.find((genre: any) => genre.id == id).name;
+    const movies = await getData(`/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}`);
     return (
         <>
             <Slider title={`${genreName} Movies`} list={movies} type="movie" />

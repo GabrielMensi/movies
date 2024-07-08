@@ -1,6 +1,6 @@
 import Card from "@/components/Card";
 
-export default function Slider({ title, list, type }: {title: string, list: any, type: any}) {
+export default function Slider({ title, list, type }: { title: string, list: any, type: any }) {
     return (
         <section className="flex flex-col gap-4 pb-20">
             <h2 className="text-4xl font-bold pb-8">{title}</h2>
