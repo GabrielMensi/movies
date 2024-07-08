@@ -4,10 +4,10 @@
 
 [LINK](https://movies-app-gmensi.vercel.app/)
 
+
 ## Lighthouse report
 
-![image](https://github.com/GabrielMensi/movies/assets/106116793/c23c1531-d3fa-4899-a1af-6f4fdd075fcc)
-
+![image](https://github.com/GabrielMensi/movies/assets/106116793/0625d9f9-98e6-452e-8137-9e2edb59730f)
 
 
 ## Run the project
